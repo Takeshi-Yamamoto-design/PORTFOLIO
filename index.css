@@ -1,0 +1,415 @@
+@charset "utf-8";
+
+html {
+	font-size: 62.5%;
+}
+
+
+
+/*** clearfix ***/
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+/*** wrapper ***/
+#wrapper{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+
+
+/*** main ***/
+main{
+	height: auto;
+	width: 100%;
+}
+
+
+
+/*** hearder ***/
+header nav ul {
+	gap: 10%;
+}
+
+header nav ul li a {
+	display: block;
+}
+
+
+
+/*** font-family ***/
+body{
+	font-family: serif;
+}
+
+
+
+/*** text-decoration ***/
+a{
+	text-decoration: none;
+}
+
+
+
+/*** ハンバーガーボタン ***/
+.hamburger
+{
+	/*** 横棒 ***/
+	flex-direction: column;/* flexの縦並べ */
+	gap: 5px;
+	/*** 押し込みアニメーション ***/
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hamburger:active{
+	transform: scale(0.92);
+}
+
+.hamburger span {
+	display: block;
+	height: 2px;/* 線の太さ */
+	width: 80%;/* 線の広さ＝長さ */
+	border-radius: 10px;
+}
+
+.hamburger:hover
+{
+	opacity: 0.5;
+}
+
+
+
+/*** ハンバーガーメニュー ***/
+.menu
+{
+	width: auto;/* menuの大きさ */
+	border-right: 1px solid #999;/* 境界線 */
+	transform: translateX(-100%);/* ハンバーガーメニュの初期位置 */
+	transition: transform 0.2s ease;/*スライド速度 */
+}
+
+
+
+/*** ハンバーガーメニューのactive処理 ***/
+.menu.active {
+  transform: translateX(0);/* スライド後のポジション */
+}
+
+
+
+/*** ハンバーガーメニュー表示時に背景をグレーにする ***/
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;/* 要素（色）を隠すための処理 */
+	visibility: hidden;/* ハンバーガーメニューを出す前 */
+	transition: 0.2s ease;/* 戻る速度 */
+}
+
+.overlay.active {
+  opacity: 1;/* 要素（色）が完全表示される */
+  visibility: visible;
+}
+
+
+
+/*** ハンバーガーメニュー内の編集 ***/
+.menu ul li a {
+	display: block;
+	position: relative;/* hoverした時に下線を出す */
+}
+
+.menu ul li a::after{
+	content: "";
+	position: absolute;
+	height: 1px;/* 線の太さ */
+	transition: width 0.2s ease;/* 速さ */
+	left: 0;
+	bottom: 1rem;/* 下線位置 */
+	width: 0;/* hoverしてない時 */
+}
+
+.menu ul li a:hover::after {
+	width: 100%;
+}
+
+
+
+/*** flex ***/
+header nav ul,
+.hamburger {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+/*** 背景色 ***/
+header,
+.hamburger
+{
+	background: #444;
+}
+
+body,
+main,
+.menu
+{
+	background: #fff;
+}
+
+.hamburger span,
+.menu ul li a::after
+{
+	background: #999;
+}
+
+.overlay
+{
+  background: rgba(0,0,0,0.3);
+}
+
+
+
+/*** 高さ調整 ***/
+header nav ul li a {
+	padding: 0.5em 0;
+	box-sizing: border-box;
+
+}
+
+
+
+/*** ハンバーガーボタン ***/
+.hamburger {
+	width: 25px;
+	height: 25px;
+	border: 1px solid #444;
+	cursor: pointer;
+}
+
+
+
+/*** ポジション調整 ***/
+.menu,
+section h1
+{
+	padding: 0.1em 1rem;
+	box-sizing: border-box;
+}
+
+.hamburger
+{
+	position: fixed;/* ハンバーガーボタンの位置 */
+	top: 5px;
+	left: 5px;
+}
+
+.menu
+{
+	position: fixed;/* ハンバーガーメニューの位置 */
+	top: 0;
+	left: 0;
+}
+
+
+
+/*** 文字間隔 ***/
+ul li,
+article h3,
+section h2,
+p
+{
+	letter-spacing: 0.1rem;
+}
+
+
+
+/*** 太字 ***/
+a,
+section h1,
+section h2
+{
+	font-weight: bold;
+}
+
+
+
+/*** 中央寄せ ***/
+section h2,
+#hero p,
+footer
+{
+	text-align: center;
+}
+
+
+
+/*** スクリーン比率 ***/
+header,
+#bxslider img,
+.about
+{
+	width: 100%;
+	margin: 0 auto;
+}
+
+
+
+/*** height ***/
+img
+{
+	height: auto;
+}
+
+.menu
+{
+	height: 100%;
+	box-sizing: border-box;
+}
+
+
+
+/*** 幅間隔調整 ***/
+article
+{
+	padding: 3em 0;
+	box-sizing: border-box;
+}
+
+main section h2,/* キャッチコピー */
+main section article h3/* 見出し */
+{
+	margin-bottom: 1em;
+	box-sizing: border-box;
+}
+
+#hero div,/* キャッチコピー */
+.about/* about全体 */
+{
+	padding: 15em 1rem;
+	box-sizing: border-box;
+}
+
+.menu ul/* ハンバーガーメニュー */
+{
+	padding: 10rem 0;
+	box-sizing: border-box;
+}
+
+.menu ul li a/* ハンバーガーメニュー */
+{
+	padding: 1em 0;/* 空白部分を選択出来る様に */
+	box-sizing: border-box;
+}
+
+
+
+/*** z-index ***/
+.hamburger {
+	z-index: 1000;
+}
+
+.menu {
+	z-index: 900;
+}
+
+.overlay {
+  z-index: 800; /* menuより下 */
+}
+
+
+
+/*** カラー ***/
+nav ul li a:hover/* ハンバーガーメニュー */
+{
+	color: #000;
+}
+
+#hero p,/* キャッチコピー */
+article p/* about詳細 */
+{
+	color: #888;
+}
+
+header nav ul li a
+{
+	color: #fff;
+}
+
+section h1,/* 氏名 *//* PORTFOLIO */
+#hero h2,/* キャッチコピー */
+article h3/* 見出し */
+{
+	color: #666;
+}
+
+nav ul li a,/* ハンバーガーメニュー */
+header nav ul li a:hover
+{
+	color: #999;
+}
+
+
+
+/*** フォントサイズ ***/
+nav ul li a
+{
+	font-size: 1.6rem;
+}
+
+section h1/* 氏名 */
+{
+	font-size: 3rem;
+}
+section h2/* キャッチコピー */
+{
+	font-size: 2.4rem;
+}
+
+#hero p,/* キャッチコピー */
+main section article h3/* 見出し */
+{
+	font-size: 1.8rem;
+}
+
+footer p,
+article p/* about詳細 */
+{
+	font-size: 1.4rem;
+}
+/**************************************/
+/*** responsive ***/
+@media screen and (max-width:768px) {
+	#wrapper,
+	main
+	{
+		width: 100%;
+	}
+	
+	/* スマホ用に文字の横付け回避 */
+	section
+	{
+		width: 100%;
+		padding: 0 1.6rem;
+		box-sizing: border-box;
+		margin: 0 auto;
+	}
+	
+	article{
+		padding: 2rem;
+	}
+	
+	h1{
+		text-align: center;	
+	}
+}
+/**************************************/
