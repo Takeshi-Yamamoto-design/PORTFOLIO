@@ -1,0 +1,498 @@
+@charset "utf-8";
+
+html {
+	font-size: 62.5%;
+}
+
+
+
+/*** clearfix ***/
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+
+/*** font-family ***/
+body{
+	font-family: serif;
+}
+
+
+
+/*** wrapper ***/
+#wrapper{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+
+
+/*** ハンバーガーメニューボタン ***/
+.hamburger {
+	width: 25px;
+	height: 25px;/* 箱の大きさ */
+	border: 1px solid #444;/* 外枠 */
+	/*** 押し込みアニメーション ***/
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hamburger:active{
+	transform: scale(0.92);
+}
+
+
+
+/*** span ***/
+span {
+	display: block;
+	height: 2px;/* 線の太さ */
+	width: 80%;/* 線の広さ＝長さ */
+	border-radius: 10px;
+}
+
+
+
+/*** ハンバーガーメニュー ***/
+.menu {
+	border-right: 1px solid #999;/* 境界線 */
+	transform: translateX(-100%);/* ハンバーガーメニュー初期位置 */
+	transition: transform 0.2s ease;/* 表示速度 */
+}
+
+.menu.active/* 表示位置 */
+{
+  transform: translateX(0);
+}
+
+
+
+/*** ハンバーガーメニュー表示時に背景をグレーにする ***/
+.overlay {
+	background: rgba(0,0,0,0.3);
+	opacity: 0;
+	visibility: hidden;
+	transition: 0.2s ease;
+}
+
+.overlay.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+
+
+/*** ハンバーガーメニューのhoverアクション ***/
+.menu ul li a {
+	position: relative;
+}
+
+.menu ul li a::after{
+	content: "";
+	position: absolute;
+	height: 1px;/* 下線太さ */
+	transition: width 0.2s ease;/* 速度 */
+	left: 0;/* 初期位置 */
+	bottom: 1rem;/* 下線位置 */
+	width: 0;/* 初期長さ */
+}
+
+.menu ul li a:hover::after {
+	width: 100%;
+}
+
+
+
+/*** object-fit ***/
+section img {
+	object-fit: contain;
+}
+
+
+
+/*** hoverした時に半透明化とカーソル表示 ***/
+.hamburger:hover,
+#Key-visual img:hover,
+#Flier img:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+
+
+/*** ポジション ***/
+.overlay,
+.menu/* ハンバーガーメニュー */
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.hamburger
+{
+	position: fixed;
+	top: 5px;
+	left: 5px;
+}
+
+
+
+h1{
+	font-size: 3.5rem;
+	margin-bottom: 5rem;
+	opacity: 0.6;
+	font-weight: 500;
+}
+
+h3{
+	width: 60%;
+	text-align: left;
+}
+
+h2{
+	opacity: 0.7;
+}
+
+
+/*** 横の中央寄せ ***/
+main .content ul,
+header nav ul,
+#Key-visual ul,
+.hamburger
+{
+	justify-content: center;
+}
+
+h2,
+.concept,
+footer{
+	text-align: center;
+}
+
+/*** 縦向き ***/
+section,
+.hamburger {
+	flex-direction: column;
+}
+
+
+
+/*** 縦の中央寄せ ***/
+.hamburger,
+header nav ul,
+section
+{
+	align-items: center;
+}
+
+
+
+/*** gap ***/
+.hamburger {
+	gap: 0.5rem;
+}
+
+main .content ul,
+header nav ul
+{
+	gap: 10%;
+}
+
+
+
+/*** 背景色 ***/
+header nav,
+.hamburger
+{
+	background: #444;
+}
+
+
+.menu ul li a::after,
+span
+{
+	background-color: #999;
+}
+
+body,
+main,
+.menu
+{
+	background-color: #fff;
+}
+
+
+/*** カラー ***/
+.menu ul li a:hover,
+main .content ul li a:hover
+{
+	color: #000;	
+}
+
+.menu ul li a,
+header a:hover,
+main .content ul li a
+{
+	color: #999;
+}
+
+header nav ul li a
+{
+	color: #fff;
+}
+
+
+
+/*** height ***/
+.overlay,
+.menu
+{
+	height: 100%;
+}
+
+section,
+main,
+img
+{
+	height: auto;
+}
+
+
+
+/*** z-index ***/
+.overlay {
+  z-index: 800; /* ,menuより下 */
+}
+
+.menu {
+	z-index: 900;
+}
+
+.hamburger {
+	z-index: 1000;
+}
+
+
+
+/*** 太字 ***/
+a,
+section h2,
+h3
+{
+	font-weight: bold;
+}
+
+
+
+/*** text-decoration ***/
+a{
+	text-decoration: none;
+}
+
+
+
+/*** 見出し下線 ***/
+main h2
+{
+	text-decoration: underline;
+	text-decoration-color: pink;
+}
+
+main h3
+{
+	text-decoration: underline;
+	text-decoration-color: skyblue;
+}
+
+
+/*** display ***/
+
+/* flex */
+#Flier ul,
+#Key-visual ul,
+header nav ul,
+section,
+main .content ul,
+.hamburger,
+.flex ul
+{
+	display: flex;
+}
+
+/* block */
+header nav ul li a,
+.menu ul li a/* ハンバーガーメニュー */
+{
+	display: block;
+}
+
+
+
+/*** width ***/
+main,
+.overlay,
+header,
+section
+{
+	width: 100%;
+}
+
+.menu
+{
+	width: auto;
+}
+
+section p/* 文章全体の横幅 */
+{
+	width: 60%;
+	margin: 0 auto;
+}
+
+section img/* コンテンツ内全ての画像の大きさ */
+{
+	width: 60%;
+}
+
+
+
+/* 各種画像 */
+.flex img,
+#Key-visual img,
+#Flier img
+{
+	width: 100%;
+}
+
+
+
+/*** 間隔調整 ***/
+header nav ul li a {
+	padding: 0.5em 0;
+	box-sizing: border-box;
+}
+
+.flex ul li {
+	padding: 2rem 5rem;
+	box-sizing: border-box;
+}
+
+section img,
+section h2,
+.concept
+{
+	margin-bottom: 3rem;
+	box-sizing: border-box;
+}
+
+.menu ul {
+	padding: 10rem 1rem;
+	box-sizing: border-box;
+}
+
+main nav ul,
+.menu ul li a{
+	padding: 2rem 0;
+	box-sizing: border-box;
+}
+
+h3,
+main p{
+	margin-bottom: 1em;
+	box-sizing: border-box;
+}
+
+article section {
+	padding: 3rem 0;
+	box-sizing: border-box;
+}
+
+
+
+/*** フォントサイズ ***/
+h3,
+p
+{
+	font-size: 1.4rem;
+}
+
+section h2 {
+	font-size: 2.5rem;
+}
+
+.concept,
+ul li a{
+	font-size: 1.6rem;
+}
+
+
+
+/*** 文字間隔調整 ***/
+main p
+{
+	margin-bottom: 1em;
+}
+
+
+
+/*** 文字幅 ***/
+h3
+section h2,
+ul li,
+p
+{
+	letter-spacing: 0.1rem;
+}
+
+
+
+/*** client-brief ***/
+
+/****************************************/
+/*** responsive ***/
+@media screen and (max-width:768px) {
+	
+	#wrapper {
+	width: 100%;
+	}
+	
+	main{
+	width: 100%;
+	height: auto;
+	}
+	
+	
+	
+	/*** スマホ様にナビゲーションの非表示 ***/
+	main nav{
+	display: none;
+	}
+	
+	
+	
+	/*** 縦向きに変更 ***/
+	section div ul
+	{
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+	
+	
+	
+	/*** section ***/
+	section img
+	{
+		width: 100%;/* 画像はスマホサイズ */
+		height: auto;
+	}
+	
+	section p
+	{
+		width: 100%;
+		padding: 0 1.6rem;/* 文字の横付け回避 */
+	}
+}
+/****************************************/
